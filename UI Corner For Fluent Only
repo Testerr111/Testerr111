@@ -1,0 +1,43 @@
+--[[
+
+This is very useful for your own script 
+enjoy no need creds This is easy to make!
+
+--]]
+
+
+
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Black background for ImageButton
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton.Size = UDim2.new(0, 100, 0, 50)  -- Adjusted size to fit the text
+ImageButton.Draggable = true
+ImageButton.Image = ""  -- Empty image (black background will be used)
+
+
+-- Add a TextLabel to display "Name it"
+TextLabel.Parent = ImageButton
+TextLabel.Text = "Name it"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text
+TextLabel.TextSize = 10
+TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)  -- Centered text
+TextLabel.BackgroundTransparency = 1  -- No background for the text
+TextLabel.Size = UDim2.new(1, 0, 1, 0)  -- Fill the entire ImageButton
+
+
+-- Add a corner radius for the ImageButton (optional)
+UICorner.Parent = ImageButton
+
+ImageButton.MouseButton1Down:connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.LeftControl, false, game)
+end)
